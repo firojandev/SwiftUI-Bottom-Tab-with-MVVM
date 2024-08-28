@@ -8,8 +8,20 @@
 import SwiftUI
 
 struct AddPageView: View {
+
+    @EnvironmentObject var navState: NavState
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack {
+          
+            Spacer()
+            
+            CommonButtonView(title: "Add", backgroundColor: Color.red, action: {
+                
+            })
+        }
+        .background(Color.colorBackground.ignoresSafeArea(.all))
+        .navigationTitle("Add")
     }
 }
 

@@ -8,13 +8,56 @@
 import SwiftUI
 
 struct TpColleageRowView: View {
+    
+    var colleageModel: ColleageModel
+    var userAction: () -> Void
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        Button(action: userAction) {
+            VStack {
+                VStack {
+                    Text(colleageModel.name)
+                        .frame(maxWidth: .infinity)
+                }
+                .background(Color.gray.opacity(0.4))
+                .cornerRadius(5)
+                    
+                HStack {
+                    HStack {
+                        showTextView(text: colleageModel.designation)
+                        showTextView(text: colleageModel.userId)
+                    }
+                    showTextView(text: colleageModel.market)
+                }
+                .frame(maxWidth: .infinity)
+                
+            }
+            .padding()
+            .background(Color.teal.opacity(0.05))
+            .frame(maxWidth: .infinity)
+            .cornerRadius(5)
+        }
+    }
+    
+    
+}
+
+struct showTextView: View{
+    var text:String
+    var body: some View {
+        VStack {
+            Text(text).frame(maxWidth: .infinity)
+        }
+        .background(Color.gray.opacity(0.4))
+        .cornerRadius(5)
     }
 }
 
+
 struct TpColleageRowView_Previews: PreviewProvider {
     static var previews: some View {
-        TpColleageRowView()
+        TpColleageRowView(colleageModel:ColleageModel(
+            userId: "MIO1", name: "MIO Name1", designation: "MIO", market: "MIO Market 1"
+        ), userAction:{})
     }
 }

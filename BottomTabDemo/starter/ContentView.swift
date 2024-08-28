@@ -8,19 +8,41 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    @EnvironmentObject var loginViewModel: LoginViewModel
+    @EnvironmentObject var navState: NavState
+       
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
+        NavigationStack(path: $navState.path) {
+            VStack {
+                if loginViewModel.isLoggedIn {
+                    MainTabView().navigationBarBackButtonHidden(true)
+                } else {
+                    LoginView().navigationBarBackButtonHidden(true)
+                }
+            }
+            .navigationDestination(for: NavRoute.self) { destination in
+                switch destination {
+                case .LoginView:
+                    LoginView().navigationBarBackButtonHidden(true)
+                case .MainTabView:
+                    MainTabView().navigationBarBackButtonHidden(true)
+                case .AddPageView:
+                    AddPageView()
+                case .TPColleagesView:
+                    TPColleagesView()
+                    
+                }
+            }
         }
-        .padding()
+        .onAppear {
+            loginViewModel.checkLogin()
+        }
     }
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        ContentView().environmentObject(NavState()).environmentObject(LoginViewModel())
     }
 }

@@ -6,3 +6,8 @@
 //
 
 import Foundation
+import SwiftUI
+
+class NavState: ObservableObject {
+    @Published var path = NavigationPath()
+}

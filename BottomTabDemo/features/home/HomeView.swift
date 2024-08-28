@@ -8,8 +8,25 @@
 import SwiftUI
 
 struct HomeView: View {
+    @EnvironmentObject var navState: NavState
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack {
+            // Top Navbar
+            TopbarView(pageTitle: "Home",actionTitle: "Add",action: {
+                navState.path.append(NavRoute.AddPageView)
+            })
+            Spacer()
+            // Body
+            VStack {
+                Text("Home View")
+                    .font(.title)
+                    .padding()
+                
+                // Additional content here
+            }
+            .padding()
+        }
+        .background(Color.colorBackground.ignoresSafeArea(.all))
     }
 }
 

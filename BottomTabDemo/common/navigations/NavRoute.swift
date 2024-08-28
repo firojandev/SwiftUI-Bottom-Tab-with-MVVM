@@ -6,3 +6,11 @@
 //
 
 import Foundation
+import SwiftUI
+
+enum NavRoute:Hashable {
+    case LoginView
+    case MainTabView
+    case AddPageView
+    case TPColleagesView
+}

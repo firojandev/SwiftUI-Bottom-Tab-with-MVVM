@@ -8,13 +8,25 @@
 import SwiftUI
 
 struct CommonButtonView: View {
+    var title: String
+    var backgroundColor:Color
+    var action: () -> Void
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        Button(action: action) {
+            Text(title)
+                .fontWeight(.bold)
+                .foregroundColor(.white)
+                .padding()
+                .frame(maxWidth: .infinity)
+                .background(backgroundColor)
+                .cornerRadius(8)
+        }
     }
 }
 
 struct CommonButtonView_Previews: PreviewProvider {
     static var previews: some View {
-        CommonButtonView()
+        CommonButtonView(title: "Test", backgroundColor: Color.red, action: {})
     }
 }

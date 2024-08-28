@@ -8,13 +8,32 @@
 import SwiftUI
 
 struct TopbarView: View {
+    var pageTitle: String
+    var actionTitle: String?
+    var action: (() -> Void)?  // Make the action closure optional
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        HStack {
+            Text(pageTitle)
+                .font(.headline)
+                .padding()
+            Spacer()
+            if let actionTitle = actionTitle, let action = action {
+                Button(action: action) {
+                    Text(actionTitle)
+                        .padding()
+                }
+            }
+        }
+        .background(Color.purple.opacity(0.2))
+        .foregroundColor(.black)
     }
 }
 
 struct TopbarView_Previews: PreviewProvider {
     static var previews: some View {
-        TopbarView()
+        TopbarView(pageTitle: "Home", actionTitle: "Add", action: {
+            // Action code here
+        })
     }
 }
