@@ -33,9 +33,14 @@ class LoginViewModel: ObservableObject {
         self.isLoading = true
         NetworkService.shared.login(userId: username, password: password,token:"Test1")
             .sink(receiveCompletion: { completion in
-                if case .failure(let error) = completion {
-                    self.errorMessage = error.localizedDescription
-                    self.isLoading = false
+                self.isLoading = false
+                switch completion {
+                case .finished:
+                    // No error occurred
+                    break
+                case .failure(let error):
+                    self.errorMessage = NetworkError.customErrorMessage(from: error)
+                    break
                 }
                 
             }, receiveValue:{ user in
@@ -43,6 +48,7 @@ class LoginViewModel: ObservableObject {
                     DatabaseService.shared.saveUser(user)
                     self.isLoggedIn = true
                 }else{
+                    self.errorMessage = "Login failed! Try again"
                     self.isLoggedIn = false
                 }
                 

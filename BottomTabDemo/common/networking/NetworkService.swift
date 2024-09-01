@@ -45,5 +45,4 @@ class NetworkService {
             .receive(on: DispatchQueue.main)
             .eraseToAnyPublisher()
     }
-    
 }

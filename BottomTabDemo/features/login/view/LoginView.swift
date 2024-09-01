@@ -56,13 +56,18 @@ struct LoginView: View {
                             Spacer()
                         }
                         if viewModel.isLoading {
-                            ProgressView("Please wait...")
+                            ProgressView("Please wait...").foregroundColor(Color.purple)
                         }
                         
-                        if let errorMessage = viewModel.errorMessage {
-                            Text(errorMessage)
-                                .font(.footnote)
-                                .foregroundColor(.red)
+                        if viewModel.errorMessage != nil &&  viewModel.errorMessage != "" {
+                            MessageView(isError: true, message: viewModel.errorMessage ?? "")
+                                .onAppear {
+                                    DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+                                        withAnimation {
+                                            viewModel.errorMessage = ""
+                                        }
+                                    }
+                                }
                         }
                         
                         Button(action: {

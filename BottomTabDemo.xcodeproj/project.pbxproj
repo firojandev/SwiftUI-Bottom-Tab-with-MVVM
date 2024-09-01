@@ -35,6 +35,8 @@
 		C15857DA2C7EECEC004FFD3E /* ColleageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C15857D92C7EECEC004FFD3E /* ColleageModel.swift */; };
 		C15857DC2C7EED28004FFD3E /* TPColleagesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C15857DB2C7EED28004FFD3E /* TPColleagesView.swift */; };
 		C15857E02C7EF2AA004FFD3E /* AddPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C15857DF2C7EF2AA004FFD3E /* AddPageView.swift */; };
+		C1F8ADB12C8477360074400E /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1F8ADB02C8477360074400E /* NetworkError.swift */; };
+		C1F8ADB52C847D4E0074400E /* MessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1F8ADB42C847D4E0074400E /* MessageView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -67,6 +69,8 @@
 		C15857D92C7EECEC004FFD3E /* ColleageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColleageModel.swift; sourceTree = "<group>"; };
 		C15857DB2C7EED28004FFD3E /* TPColleagesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TPColleagesView.swift; sourceTree = "<group>"; };
 		C15857DF2C7EF2AA004FFD3E /* AddPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPageView.swift; sourceTree = "<group>"; };
+		C1F8ADB02C8477360074400E /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
+		C1F8ADB42C847D4E0074400E /* MessageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,6 +127,7 @@
 				C15857C32C7ECE95004FFD3E /* toast */,
 				C15857D22C7EDF78004FFD3E /* TopbarView.swift */,
 				C15857D42C7EE8A5004FFD3E /* CommonButtonView.swift */,
+				C1F8ADB42C847D4E0074400E /* MessageView.swift */,
 			);
 			path = components;
 			sourceTree = "<group>";
@@ -204,6 +209,7 @@
 			children = (
 				C15857BA2C7EC898004FFD3E /* NetworkService.swift */,
 				C15857BC2C7EC8AE004FFD3E /* NetworkMonitor.swift */,
+				C1F8ADB02C8477360074400E /* NetworkError.swift */,
 			);
 			path = networking;
 			sourceTree = "<group>";
@@ -371,10 +377,12 @@
 			files = (
 				C15857CC2C7ED81A004FFD3E /* ViewExtension.swift in Sources */,
 				C15857CF2C7EDA4F004FFD3E /* ProfileViewModel.swift in Sources */,
+				C1F8ADB52C847D4E0074400E /* MessageView.swift in Sources */,
 				C15857C72C7ECF28004FFD3E /* ToastView.swift in Sources */,
 				C15857DA2C7EECEC004FFD3E /* ColleageModel.swift in Sources */,
 				C15857DC2C7EED28004FFD3E /* TPColleagesView.swift in Sources */,
 				C15857A32C7EC412004FFD3E /* SearchView.swift in Sources */,
+				C1F8ADB12C8477360074400E /* NetworkError.swift in Sources */,
 				C15857892C7EC1BD004FFD3E /* ContentView.swift in Sources */,
 				C15857A02C7EC3E0004FFD3E /* HomeView.swift in Sources */,
 				C15857B52C7EC826004FFD3E /* AppConstants.swift in Sources */,
