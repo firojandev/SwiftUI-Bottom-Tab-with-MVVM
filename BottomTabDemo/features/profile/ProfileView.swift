@@ -40,12 +40,44 @@ struct ProfileView: View {
             .cornerRadius(10)
             .padding(10)
             
+            Section {
+                VStack(alignment: .leading, spacing: 10) {
+                    HStack {
+                        Link("Privacy Policy", destination: URL(string: "https://your-privacy-url.com")!)
+                            .font(.footnote)
+                            .foregroundColor(.blue)
+                        Spacer()
+                    }
+                    
+                    Divider()
+                    
+                    HStack {
+                        Link("Terms & Conditions", destination: URL(string: "https://your-terms-url.com")!)
+                            .font(.footnote)
+                            .foregroundColor(.blue)
+                    }
+                }
+                .padding(16)
+                .frame(maxWidth: .infinity)
+                .background(Color.white)
+                .cornerRadius(10)
+                .padding(.horizontal, 16)
+            } header: {
+                HStack {
+                    Text("Links")
+                        .font(.headline)
+                    Spacer()
+                }
+                .padding(.horizontal, 16)
+            }
+            
             CommonButtonView(title: "Logout", backgroundColor: Color.red, action: {
                 viewModel.willLogout()
             })
             .padding()
             
             Spacer()
+            
             
         }
         .background(Color.colorBackground.ignoresSafeArea(.all))
