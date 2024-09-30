@@ -9,7 +9,6 @@ import Foundation
 class NetworkError {
     static func customErrorMessage(from error: Error) -> String {
         let nsError = error as NSError
-        
         switch nsError.code {
         case URLError.notConnectedToInternet.rawValue:
             return "No internet connection."
